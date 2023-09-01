@@ -1,0 +1,28 @@
+def calcular_imc(peso, altura):
+    return peso / (altura ** 2)
+
+def determinar_categoria(imc):
+    if imc < 18.5:
+        return "Bajo peso"
+    elif imc < 24.9:
+        return "Peso normal"
+    elif imc < 29.9:
+        return "Sobrepeso"
+    else:
+        return "Obesidad"
+
+def main():
+    try:
+        peso = float(input("Ingresa tu peso en kg: "))
+        altura = float(input("Ingresa tu altura en metros: "))
+        
+        imc = calcular_imc(peso, altura)
+        categoria = determinar_categoria(imc)
+        
+        print(f"Tu IMC es: {imc:.2f}")
+        print(f"Categoría: {categoria}")
+    except ValueError:
+        print("Por favor ingresa valores numéricos válidos.")
+
+if __name__ == "__main__":
+    main()

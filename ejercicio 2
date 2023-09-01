@@ -1,0 +1,26 @@
+def selection_sort(nums):
+    n = len(nums)
+    for i in range(n):
+        min_index = i
+        for j in range(i+1, n):
+            if nums[j] < nums[min_index]:
+                min_index = j
+        nums[i], nums[min_index] = nums[min_index], nums[i]
+
+def main():
+    try:
+        input_str = input("Ingresa una serie de números separados por espacios: ")
+        num_strings = input_str.split()
+        nums = [int(num) for num in num_strings]
+
+        selection_sort(nums)
+
+        print("Lista ordenada:")
+        for num in nums:
+            print(num, end=" ")
+        print()  # Para imprimir un salto de línea al final
+    except ValueError:
+        print("Por favor ingresa números separados por espacios.")
+
+if __name__ == "__main__":
+    main()
